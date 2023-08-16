@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Carousel from '../components/carousel'
 import Footer from '../components/footer'
-import Questions from '../pages/Questions'
+import Questions from './Questions'
 
 function Home() {
   return (
@@ -15,6 +15,7 @@ function Home() {
       </div>
       <div>
         {/* Body of the page  */}
+        <Questions/>
       </div>
       <div>
         <Footer/>

@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import fetch from 'isomorphic-fetch';
+import Axios from 'axios';
 
 const Questions = () => {
-  const [question, setQuestion] = useState('');
-
-  async function fetchQuestion() {
-    const response = await fetch('http://localhost:4000/api/random-question', {
-      mode: 'no-cors',
+  const [question, setQuestion] = useState([]);
+  useEffect(()=>{
+    Axios.get('http://localhost:4000/api/random-question').then((res)=>{
+      console.log(res);
+      setQuestion(res.data);
     });
-    const data = await response.json();
-    setQuestion(data.question);
-  }
-
-  useEffect(() => {
-    fetchQuestion();
-  }, []);
+  },[]);
 
   return (
     <>
-      <h1>{question}</h1>
+      <p>{question.question}</p>
+      <p>{question.option1}</p>
+      <p>{question.option2}</p>
+      <p>{question.option3}</p>
+      <p>{question.option4}</p>
     </>
   );
 };
