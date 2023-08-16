@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Carousel from '../components/carousel'
 import Footer from '../components/footer'
+import Questions from '../pages/Questions'
+
 function Home() {
   return (
     <div>
