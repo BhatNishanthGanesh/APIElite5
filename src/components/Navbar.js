@@ -3,23 +3,24 @@ import React from "react";
 function Navbar() {
   return (
     <div>
-      <ul className="nav justify-content-end">
-        <li className="nav-item">
-          <a className="nav-link active" href="#">
-            About
+      <nav>
+        <div className="nav-wrapper">
+          <a href="#" className="brand-logo">
+            <strong>Logo</strong>
           </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Login
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Sign up
-          </a>
-        </li>
-      </ul>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Login</a>
+            </li>
+            <li>
+              <a href="#">Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   );
 }
