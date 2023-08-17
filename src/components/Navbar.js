@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./navbar.css";
 
 function Navbar() {
   return (
@@ -11,7 +11,7 @@ function Navbar() {
           </a>
           <ul id="nav-mobile" className=" right hide-on-med-and-down">
             <li>
-              <strong><a className="black-text text-darken-2" href="#">API DOC</a></strong>
+              <strong><a className="medium black-text text-darken-2" href="#">API DOC</a></strong>
             </li>
             <li>
               <strong><a className="black-text text-darken-2" href="#">ABOUT</a></strong>
