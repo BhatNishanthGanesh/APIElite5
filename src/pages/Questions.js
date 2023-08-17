@@ -62,7 +62,13 @@ const Question=()=>{
             <button className='opt btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option4)}>{questionData.option4}</button>
         </ul>
         </div>
-          <button className="btn" onClick={handleNextQuestionClick}>Next Question</button>
+        <ul className="d-flex">
+          <li>
+            <button className="btn" onClick={handleNextQuestionClick}>Next Question</button>
+          </li>
+          <li>
+          </li>
+        </ul>
         </>
       )}
     </div>
