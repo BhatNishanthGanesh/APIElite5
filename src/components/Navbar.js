@@ -1,7 +1,11 @@
 import React from "react";
 import "./navbar.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Navbar() {
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   return (
     <div>
       <nav>
@@ -20,9 +24,22 @@ function Navbar() {
             <li>
              <strong> <a className="black-text text-darken-2" href="#">My Questions</a></strong>
             </li>
-            <li>
-              <strong><a className="black-text text-darken-2" href="#"><i className="large material-icons">account_circle</i></a></strong>
+            {
+            isAuthenticated?(
+                <>
+                <li>
+                <img src={user.picture} alt={user.name} />
             </li>
+                <li>
+                    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                Log Out
+                </button>
+                </li>
+                </>
+            ):(
+                <li><button onClick={() => loginWithRedirect()}>Log In</button>;</li>
+            )
+            }
           </ul>
         </div>
       </nav>
