@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Carousel from '../components/carousel'
 import Footer from '../components/footer'
 import Questions from './Questions'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function Home() {
   return (
