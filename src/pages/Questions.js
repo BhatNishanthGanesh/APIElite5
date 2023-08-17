@@ -14,9 +14,13 @@ const Question=()=>{
       });
   }, []);
 
-  const handleClickedOption = ()=>{
-      
-  }
+  const handleClickedOption = (option) => {
+    if (option === questionData.correctOption) {
+      alert('Correct!');
+    } else {
+      alert('Incorrect!');
+    }
+  };
 
   return (
     <div>
@@ -26,15 +30,15 @@ const Question=()=>{
         <h3>{questionData.question}</h3>
         <ul className="">
           <li>
-            <button className='btn' onClick={handleClickedOption}>{questionData.option1}</button> <br />
+            <button className='btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option1)}>{questionData.option1}</button> <br />
           </li>
           <li>
-            <button className='btn' >{questionData.option2}</button> <br />       
+            <button className='btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option2)}>{questionData.option2}</button> <br />       
           </li>
           <li>
-            <button className='btn'>{questionData.option3}</button>  <br />
+            <button className='btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option3)}>{questionData.option3}</button>  <br />
           </li>
-            <button className='btn'>{questionData.option4}</button>
+            <button className='btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option4)}>{questionData.option4}</button>
         </ul>
         </div>
         </>
