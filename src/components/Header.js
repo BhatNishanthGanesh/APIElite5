@@ -29,7 +29,7 @@ function Header() {
           </ul>
           <ul class="right hide-on-med-and-down">
             <li>
-              <a href="#" class="white waves-effect waves-light btn"> Back </a>
+              <Link to="/" class="white waves-effect waves-light btn"> Back </Link>
             </li>
           </ul>
         </div>
