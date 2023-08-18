@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import {Link} from 'react-router-dom'
 
 function Navbar() {
   const { loginWithRedirect } = useAuth0();
@@ -40,17 +41,19 @@ function Navbar() {
             {isAuthenticated ? (
               <>
                 <li>
-                  <img  src={user.picture} alt={user.name} 
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%',
-                      marginRight: '10px',
-                    }}
-                  />
+                  <Link to={'/profile'} >
+                    <img  src={user.picture} alt={user.name} 
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        cursor: 'pointer',
+                      }}
+                    />
+                  </Link>
                 </li>
                 <li>
-                  <button className="white btn"
+                  <button className="white btn me-2"
                     onClick={() =>
                       logout({
                         logoutParams: { returnTo: window.location.origin },
