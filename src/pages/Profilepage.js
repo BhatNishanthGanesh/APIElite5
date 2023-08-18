@@ -1,10 +1,12 @@
 import React from 'react'
+import Header from '../components/Header'
+
 
 const Profilepage = () => {
   return (
     <div>
         <div>
-            {/* Header */}
+            <Header/>
         </div>
         <div>
             {/*Post request field*/}
