@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {Link} from 'react-router-dom';
 
 function Header() {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { user} = useAuth0();
   return (
     <div>
       <nav>
