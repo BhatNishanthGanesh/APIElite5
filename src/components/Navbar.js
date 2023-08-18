@@ -39,7 +39,7 @@ function Navbar() {
             </li>
             {isAuthenticated ? (
               <>
-                <li >
+                <li>
                   <img  src={user.picture} alt={user.name} 
                     style={{
                       width: '40px',

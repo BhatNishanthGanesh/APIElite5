@@ -5,7 +5,7 @@ const Question=()=>{
   const [questionData, setQuestionData] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/random-question")
+    axios.get("https://api-stpn.onrender.com/api/random-question")
       .then((response) => {
         setQuestionData(response.data);
       })
@@ -30,7 +30,7 @@ const Question=()=>{
       button.disabled = false;
     }
     if (isNextQuestionAvailable) {
-      axios.get("http://localhost:4000/api/random-question")
+      axios.get("https://api-stpn.onrender.com/api/random-question")
         .then((response) => {
           setQuestionData(response.data);
           setIsNextQuestionAvailable(true);
