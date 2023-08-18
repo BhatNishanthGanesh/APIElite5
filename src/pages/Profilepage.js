@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Inputfield from '../components/Inputfield'
 const Profilepage = () => {
   return (
     <div>
@@ -8,6 +8,7 @@ const Profilepage = () => {
         </div>
         <div>
             {/*Post request field*/}
+            <Inputfield/>
         </div>
     </div>
   )
