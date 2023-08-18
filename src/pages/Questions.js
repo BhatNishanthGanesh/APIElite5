@@ -1,77 +1,98 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Question=()=>{
+const Question = () => {
   const [questionData, setQuestionData] = useState(null);
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
+  const [isNextQuestionAvailable, setIsNextQuestionAvailable] = useState(false);
 
   useEffect(() => {
+    fetchQuestion();
+  }, []);
+
+  const fetchQuestion = () => {
     axios.get("https://api-stpn.onrender.com/api/random-question")
       .then((response) => {
         setQuestionData(response.data);
+        setIsAnswerCorrect(null); // Clear previous answer feedback
+        setIsNextQuestionAvailable(false); // Next question is not available until answered
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  };
 
   const handleClickedOption = (option) => {
-    for (const button of document.querySelectorAll('.opt')) {
-      button.disabled = true;
-    }
     if (option === questionData.correctOption) {
-      alert('Correct ✔️')
+      setIsAnswerCorrect(true);
     } else {
-      alert('InCorrect ❌')
+      setIsAnswerCorrect(false);
     }
+
+    setIsNextQuestionAvailable(true); // Enable next question after answering
   };
-  const [isNextQuestionAvailable, setIsNextQuestionAvailable] = useState(true);
+
   const handleNextQuestionClick = () => {
-    for (const button of document.querySelectorAll('.opt')) {
-      button.disabled = false;
-    }
-    if (isNextQuestionAvailable) {
-      axios.get("https://api-stpn.onrender.com/api/random-question")
-        .then((response) => {
-          setQuestionData(response.data);
-          setIsNextQuestionAvailable(true);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      alert('No more questions available');
-    }
+    fetchQuestion();
   };
 
   return (
-    <div>
+    <div className="container mt-5">
       {questionData && (
-        <>
-        <div className="d-flex">
-        <ul className="">
-          <h3>{questionData.question}</h3>
-          <li>
-            <button className='opt btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option1)}>{questionData.option1}</button> <br />
-          </li>
-          <li>
-            <button className='opt btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option2)}>{questionData.option2}</button> <br />       
-          </li>
-          <li>
-            <button className='opt btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option3)}>{questionData.option3}</button>  <br />
-          </li>
-            <button className='opt btn btn-outline-dark form-control' onClick={() => handleClickedOption(questionData.option4)}>{questionData.option4}</button>
-        </ul>
+        <div className={` shading-animation`}>
+        <div className="card">
+          <div className="card-body">
+            <h3 className="card-title">{questionData.question}</h3>
+            <div className="d-flex flex-column">
+              <button
+                className="opt btn btn-outline-dark mb-2"
+                onClick={() => handleClickedOption(questionData.option1)}
+                disabled={isAnswerCorrect !== null}
+              >
+                {questionData.option1}
+              </button>
+              <button
+                className="opt btn btn-outline-dark mb-2"
+                onClick={() => handleClickedOption(questionData.option2)}
+                disabled={isAnswerCorrect !== null}
+              >
+                {questionData.option2}
+              </button>
+              <button
+                className="opt btn btn-outline-dark mb-2"
+                onClick={() => handleClickedOption(questionData.option3)}
+                disabled={isAnswerCorrect !== null}
+              >
+                {questionData.option3}
+              </button>
+              <button
+                className="opt btn btn-outline-dark mb-2"
+                onClick={() => handleClickedOption(questionData.option4)}
+                disabled={isAnswerCorrect !== null}
+              >
+                {questionData.option4}
+              </button>
+            </div>
+            {isAnswerCorrect !== null && (
+              <p className={`answer-feedback ${isAnswerCorrect ? 'text-success' : 'text-danger shake'}`}>
+                {isAnswerCorrect ? 'Correct ✔️' : 'Incorrect ❌'}
+              </p>
+            )}
+            <div className="d-flex">
+              <button
+                className="btn btn-primary"
+                onClick={handleNextQuestionClick}
+                disabled={!isNextQuestionAvailable}
+              >
+                <p className={`fw-bold zoom-in ${!isNextQuestionAvailable?'text-danger':'text-white'}`}>Next Question</p>
+              </button>
+            </div>
+          </div>
         </div>
-        <ul className="d-flex">
-          <li>
-            <button className="btn" onClick={handleNextQuestionClick}>Next Question</button>
-          </li>
-          <li>
-          </li>
-        </ul>
-        </>
+        </div>
       )}
     </div>
+
   );
 };
 
