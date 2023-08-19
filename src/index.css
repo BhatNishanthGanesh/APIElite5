@@ -39,3 +39,13 @@ code {
     transform: scale(1.1);
   }
 }
+.threed-card {
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  transform: perspective(1000px) rotateY(10deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.three-card:hover {
+  transform: perspective(100px) rotateY(0deg);
+}
