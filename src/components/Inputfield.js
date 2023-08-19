@@ -1,87 +1,130 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
-import { BsPlusCircle } from "react-icons/bs";
 
 const QuestionForm = () => {
   const { user } = useAuth0();
 
   const [question, setQuestion] = useState("");
-  const [options, setOptions] = useState([""]);
+  const [option1, setOption1] = useState("");
+  const [option2, setOption2] = useState("");
+  const [option3, setOption3] = useState("");
+  const [option4, setOption4] = useState("");
   const [correctOption, setCorrectOption] = useState("");
-
-  const handleOptionChange = (index, value) => {
-    const updatedOptions = [...options];
-    updatedOptions[index] = value;
-    setOptions(updatedOptions);
-  };
-
-  const handleAddOption = () => {
-    setOptions([...options, ""]);
-  };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!user || !user.name) {
-      alert("User information not available.");
-      return;
-    }
     const data = {
       question: question,
-      option:options,
+      option1: option1,
+      option2: option2,
+      option3: option3,
+      option4: option4,
       correctOption: correctOption,
-      likesnumber:0,
-      answered:0,
-      correct:0,
+      likesnumber: 0,
+      answered: 0,
+      correct: 0,
       username: user.name,
     };
-   
-  try {
     await axios.post("https://api-stpn.onrender.com/questions", data);
     alert("Question added successfully");
-  } catch (error) {
-    console.error("Error adding question:", error);
-    alert("An error occurred while adding the question.");
-  }
   };
-
+  const cardGradient = "linear-gradient(to right, #FFD700, #FFA500)"; // Gradient color for card
+const cardShadow = "0px 5px 15px rgba(255, 165, 0, 0.3)"; //
+  const transparentIndigo = "rgba(75, 0, 130, 0.5)";
   return (
-    <div className="question-form card card-sm m-5">
-      <div className="card-body">
-        <div className="d-flex align-items-center mb-3">
-          <BsPlusCircle className="plus-icon me-2" size={24} onClick={handleAddOption} />
-          <h3 className="card-title">Add MCQ Question</h3>
-        </div>
-        <form className="question-form" onSubmit={handleSubmit}>
-          <div className="mb-3">
+    <div className="card mt-5 mb-5"  style={{
+      maxWidth: "800px",
+      margin: "0 auto",
+      background: cardGradient,
+      boxShadow: cardShadow,
+      borderRadius: "10px",
+    }}>
+      <div className="card-body d-flex flex-column align-items-center">
+        <h3 className="card-title fw-bold" style={{ fontSize: "1.25rem", color: transparentIndigo, }}>
+        Add Question
+        </h3>
+        <form onSubmit={handleSubmit} className="w-100">
+          <div className="mb-3 fw-bold ">
+            <label htmlFor="questionInput" className="form-label">
+              Question
+            </label>
             <input
               type="text"
+              id="questionInput"
               className="form-control"
-              placeholder="Question"
+              placeholder="Enter your question here"
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
               required
             />
           </div>
-          {options.map((option, index) => (
-            <div className="mb-3 option-container" key={index}>
-              <input
-                type="text"
-                className="form-control"
-                placeholder={`Option ${index + 1}`}
-                value={option}
-                onChange={(event) => handleOptionChange(index, event.target.value)}
-                required
-              />
-            </div>
-          ))}
-          <div className="mb-3">
+          <div className="mb-3 fw-bold">
+            <label htmlFor="option1Input" className="form-label">
+              Option 1
+            </label>
             <input
-              type="number"
-              min="1"
-              max={options.length}
+              type="text"
+              id="option1Input"
               className="form-control"
-              placeholder="Enter Correct Option Number (1-4)"
+              placeholder="Enter option 1"
+              value={option1}
+              onChange={(event) => setOption1(event.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3 fw-bold">
+            <label htmlFor="option2Input" className="form-label">
+              Option 2
+            </label>
+            <input
+              type="text"
+              id="option2Input"
+              className="form-control"
+              placeholder="Enter option 2"
+              value={option2}
+              onChange={(event) => setOption2(event.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3 fw-bold">
+            <label htmlFor="option3Input" className="form-label">
+              Option 3
+            </label>
+            <input
+              type="text"
+              id="option3Input"
+              className="form-control"
+              placeholder="Enter option 3"
+              value={option3}
+              onChange={(event) => setOption3(event.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3 fw-bold">
+            <label htmlFor="option4Input" className="form-label">
+              Option 4
+            </label>
+            <input
+              type="text"
+              id="option4Input"
+              className="form-control"
+              placeholder="Enter option 4"
+              value={option4}
+              onChange={(event) => setOption4(event.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3 fw-bold">
+            <label htmlFor="correctOptionInput" className="form-label">
+              Correct Option
+            </label>
+            <input
+              type="text"
+              id="correctOptionInput"
+              className="form-control"
+              placeholder="Enter correct option"
               value={correctOption}
               onChange={(event) => setCorrectOption(event.target.value)}
               required
