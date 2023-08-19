@@ -40,7 +40,7 @@ const cardShadow = "0px 5px 15px rgba(255, 165, 0, 0.3)"; //
       boxShadow: cardShadow,
       borderRadius: "10px",
     }}>
-      <div className="card-body d-flex flex-column align-items-center">
+      <div className=" blue-grey lighten-5 card-body d-flex flex-column align-items-center">
         <h3 className="card-title fw-bold" style={{ fontSize: "1.25rem", color: transparentIndigo, }}>
         Add Question
         </h3>

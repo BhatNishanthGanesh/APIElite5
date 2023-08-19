@@ -30,10 +30,10 @@ const Userquestions = () => {
         alert("Error deleting data");
       });
   };
-  const cardGradient = "linear-gradient(to right, #1ABC9C, #2ECC71)";
+  // const cardGradient = "linear-gradient(to right, #1ABC9C, #2ECC71)";background:cardGradient,
 const cardShadow = "0px 5px 15px rgba(46, 204, 113, 0.3)";
   return (
-    <div className="container mt-5 " style={{background:cardGradient,boxShadow:cardShadow}}>
+    <div className=" blue-grey lighten-5 container mt-5 " style={{boxShadow:cardShadow}}>
       <h2 className="mb-4 text-secondary fw-bold">Your Questions</h2>
       <div className="row">
         {questions.map((question) => (

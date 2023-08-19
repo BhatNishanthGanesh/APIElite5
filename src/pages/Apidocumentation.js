@@ -2,7 +2,7 @@ import React from "react";
 
 const ApiDocumentation = () => {
   return (
-    <div className="blog-page">
+    <div className=" blue-grey lighten-4 blog-page">
       <header>
         <h1>API Documentation</h1>
         <p>
