@@ -12,7 +12,7 @@ const Userquestions = () => {
   },);
 
   const fetchQuestions = () => {
-    axios.get(`http://localhost:4000/questions/${username}`)
+    axios.get(`https://api-stpn.onrender.com/questions/${username}`)
     .then((response) => {
       setQuestions(response.data);
     })
@@ -22,9 +22,18 @@ const Userquestions = () => {
   };
  
 
-  const deleteHandler = (e) => {
-   
+  const handleDeleteQuestion = (id) => {
+    axios.post(`http://localhost:4000/questions/delete`, { id })
+      .then((response) => {
+        console.log("Question deleted successfully");
+        alert("Question deleted successfully");
+      })
+      .catch((error) => {
+        console.log("Error deleting question");
+        alert("Error deleting question");
+      });
   };
+  
 
   return (
     <>
@@ -55,7 +64,7 @@ const Userquestions = () => {
                   <span>Correct:</span>
                   <span>{question.correct}</span>
                   </div>
-                  <button type="button" class="btn btn-dark" onClick={() => deleteHandler(question._id)}>DELETE</button>
+                  <button type="button" class="btn btn-dark" onClick={() => handleDeleteQuestion(question._id)}>DELETE</button>
                 </div>
               </div>
             </div>
