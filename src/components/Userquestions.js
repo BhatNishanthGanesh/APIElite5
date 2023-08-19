@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
-
 const Userquestions = () => {
   const [questions, setQuestions] = useState([]);
   const { user } = useAuth0();
   const username = user.name;
-
   useEffect(() => {
     fetchQuestions();
   },);
@@ -22,17 +20,25 @@ const Userquestions = () => {
   };
  
 
-  const handleDeleteQuestion = (id) => {
-    axios.post(`http://localhost:4000/questions/delete`, { id })
-      .then((response) => {
-        console.log("Question deleted successfully");
-        alert("Question deleted successfully");
+  const handleDeleteQuestion = (questionId) => {
+    axios.post("http://localhost:4000/questions/delete", { id: questionId })
+      .then((res) => {
+        if (res.status === 204) {
+          alert("Data deleted successfully");
+          // You might also want to update the UI here to reflect the deleted question
+          fetchQuestions(); // This will refresh the questions list after deletion
+        } else {
+          alert("Error deleting data");
+        }
       })
       .catch((error) => {
-        console.log("Error deleting question");
-        alert("Error deleting question");
+        console.error(error);
+        alert("Error deleting data");
       });
   };
+  
+    
+  
   
 
   return (
