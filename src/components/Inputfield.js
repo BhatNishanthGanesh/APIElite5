@@ -11,7 +11,6 @@ const QuestionForm = () => {
   const [option3, setOption3] = useState("");
   const [option4, setOption4] = useState("");
   const [correctOption, setCorrectOption] = useState("");
-  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -116,7 +115,7 @@ const cardShadow = "0px 5px 15px rgba(255, 165, 0, 0.3)"; //
               required
             />
           </div>
-          <div className="mb-3 fw-bold">
+          <div className="mb-3">
             <label htmlFor="correctOptionInput" className="form-label">
               Correct Option
             </label>
