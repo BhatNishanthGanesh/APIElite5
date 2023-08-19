@@ -12,32 +12,17 @@ function Navbar() {
       <nav>
         <div className=" blue-grey lighten-1 nav-wrapper">
           <a href="#" className="black-text text-darken-2 brand-logo">
-            <strong>Logo</strong>
+            <strong>APIELITE-5</strong>
           </a>
           <ul id="nav-mobile" className=" right hide-on-med-and-down">
             <li>
               <strong>
-                <a className="medium black-text text-darken-2" href="#">
+                <Link className="medium black-text text-darken-2" to={'/apidoc'}>
                   API DOC
-                </a>
+                </Link>
               </strong>
             </li>
-            <li>
-              <strong>
-                <a className="black-text text-darken-2" href="#">
-                  ABOUT
-                </a>
-              </strong>
-            </li>
-
-            <li>
-              <strong>
-                {" "}
-                <a className="black-text text-darken-2" href="#">
-                  My Questions
-                </a>
-              </strong>
-            </li>
+          
             {isAuthenticated ? (
               <>
                 <li>

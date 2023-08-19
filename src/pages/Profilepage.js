@@ -14,7 +14,6 @@ const Profilepage = () => {
             <Inputfield/>
         </div>
         <dir>
-          <h3>My Questions</h3>
           <Userquestions/>
         </dir>
     </div>
