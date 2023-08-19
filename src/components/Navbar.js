@@ -17,9 +17,9 @@ function Navbar() {
           <ul id="nav-mobile" className=" right hide-on-med-and-down">
             <li>
               <strong>
-                <a className="medium black-text text-darken-2" href="#">
+                <Link className="medium black-text text-darken-2" to={'/apidoc'}>
                   API DOC
-                </a>
+                </Link>
               </strong>
             </li>
             <li>
