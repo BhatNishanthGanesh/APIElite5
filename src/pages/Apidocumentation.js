@@ -2,25 +2,25 @@ import React from "react";
 
 const ApiDocumentation = () => {
   return (
-    <div className="blue-grey lighten-4 blog-page">
-      <header>
-        <h1>API Documentation</h1>
-        <p>
+    <div className="container mt-5">
+      <header className="p-4 rounded-lg shadow">
+        <h1 className="display-4">API Documentation</h1>
+        <p className="lead">
           Welcome to the API documentation for the Question Management API. This
           API allows you to manage questions, retrieve information about
           questions, and perform various actions related to question management.
         </p>
       </header>
 
-      <section className="base-url">
+      <section className="base-url mt-5">
         <h2>Base URL</h2>
         <code>https://api-stpn.onrender.com</code>
       </section>
 
-      <section className="endpoints">
+      <section className="endpoints mt-5">
         <h2>Endpoints</h2>
 
-        <div className="endpoint">
+        <div className="endpoint bg-light p-4 rounded-lg shadow">
           <h3>Get All Questions</h3>
           <p>Retrieve a list of all questions.</p>
           <p>
@@ -54,7 +54,7 @@ const ApiDocumentation = () => {
 
         {/* Other endpoints */}
         {/* Add New Question */}
-        <div className="endpoint">
+        <div className="endpoint bg-light p-4 mb-4 rounded-lg shadow mt-4">
           <h3>Add New Question</h3>
           <p>Add a new question to the system.</p>
           <p>
