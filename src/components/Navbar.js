@@ -11,7 +11,7 @@ function Navbar() {
     <div>
       <nav>
         <div className=" blue-grey lighten-1 nav-wrapper">
-          <a href="#" className="black-text text-darken-2 brand-logo">
+          <a href="#" className="black-text text-darken-2 brand-logo ms-2">
             <strong>APIELITE-5</strong>
           </a>
           <ul id="nav-mobile" className=" right hide-on-med-and-down">
