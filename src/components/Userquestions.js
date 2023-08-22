@@ -7,7 +7,7 @@ const Userquestions = () => {
   const username = user.name;
   useEffect(() => {
     fetchQuestions();
-  }, []);
+  },);
 
   const fetchQuestions = () => {
     axios.get(`https://api-stpn.onrender.com/questions/${username}`)
@@ -19,17 +19,20 @@ const Userquestions = () => {
       });
   };
 
-  const handleDeleteQuestion = (id) => {
-    axios.post(`http://localhost:4000/questions/delete`, { id })
-      .then((response) => {
-        console.log("Question deleted successfully");
-        alert("Question deleted successfully");
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Error deleting data");
-      });
-  };
+  const deleteHandler = (id) => {
+  axios.delete(`https://api-stpn.onrender.com/questions/${id}`)
+    .then((response) => {
+      console.log("Question deleted successfully");
+      alert("Question deleted successfully");
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Error deleting data");
+    });
+};
+
+  
+  
   const cardGradient = "linear-gradient(to right, #1ABC9C, #2ECC71)";
 const cardShadow = "0px 5px 15px rgba(46, 204, 113, 0.3)";
   return (
@@ -64,7 +67,7 @@ const cardShadow = "0px 5px 15px rgba(46, 204, 113, 0.3)";
                 <button
                   type="button"
                   className="btn btn-danger mt-3"
-                  onClick={() => handleDeleteQuestion(question._id)}
+                  onClick={() => deleteHandler(question._id)}
                 >
                   DELETE
                 </button>
