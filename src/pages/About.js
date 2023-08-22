@@ -58,7 +58,7 @@ function About() {
             {/* <h5>Introduction :</h5> */}
             <p>
               <br></br>
-              <strong className="black-text">In</strong> the vast realm of technology, our project journey unfolds as a
+              <strong id="first-text" className="black-text">I</strong>n the vast realm of technology, our project journey unfolds as a
               tapestry woven with threads of innovation and collaboration. With
               deep appreciation, we extend our heartfelt thanks for the
               opportunity that introduced us to the world of APIs. This blog
