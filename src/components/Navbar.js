@@ -15,6 +15,13 @@ function Navbar() {
             <strong>APIELITE-5</strong>
           </a>
           <ul id="nav-mobile" className=" right hide-on-med-and-down">
+          <li>
+              <strong>
+                <Link className="medium black-text text-darken-2" to={'/about'}>
+                  About Us
+                </Link>
+              </strong>
+            </li>
             <li>
               <strong>
                 <Link className="medium black-text text-darken-2" to={'/apidoc'}>
