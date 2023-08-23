@@ -2,6 +2,7 @@ import React from 'react'
 import Inputfield from '../components/Inputfield'
 import Header from '../components/Header'
 import Userquestions from '../components/Userquestions'
+import Footer from '../components/footer'
 
 const Profilepage = () => {
   return (
@@ -16,6 +17,7 @@ const Profilepage = () => {
         <dir>
           <Userquestions/>
         </dir>
+        <Footer/>
     </div>
   )
 }

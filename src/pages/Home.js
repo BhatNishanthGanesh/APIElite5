@@ -1,22 +1,21 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Footer from '../components/footer'
+import Footer from '../components/footer' // Make sure the filename matches
 import Questions from './Questions'
-// import InputField from '../components/Inputfield'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 function Home() {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div>
-        <Navbar/>
+        <Navbar />
+      </div>
+      <div style={{ flex: '1' }}>
+        {/* Body of the page */}
+        <Questions />
       </div>
       <div>
-        {/* Body of the page  */}
-        <Questions/>
-      </div>
-      <div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   )

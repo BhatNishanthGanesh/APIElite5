@@ -53,12 +53,6 @@ const Userquestions = () => {
     }, 5000); // Increased delay to 5 seconds
   };
   
-
-  
-  
-  const cardGradient = "linear-gradient(to right, #1ABC9C, #2ECC71)";
-  
-  // const cardGradient = "linear-gradient(to right, #1ABC9C, #2ECC71)";background:cardGradient,
 const cardShadow = "0px 5px 15px rgba(46, 204, 113, 0.3)";
   return (
     <div className=" blue-grey lighten-5 container mt-5 " style={{boxShadow:cardShadow}}>

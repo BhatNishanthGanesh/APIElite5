@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import "../components/navbar.css";
+import Footer from "../components/footer";
 
 const BlogContainer = styled.div`
   font-family: "Open Sans", sans-serif;
@@ -138,6 +139,7 @@ function About() {
           </BlogContent>
         </BlogGrid>
       </BlogContainer>
+      <Footer/>
     </div>
   );
 }
