@@ -19,17 +19,40 @@ const Userquestions = () => {
       });
   };
 
+
   const deleteHandler = (id) => {
-  axios.delete(`https://api-stpn.onrender.com/questions/${id}`)
-    .then((response) => {
-      console.log("Question deleted successfully");
-      alert("Question deleted successfully");
-    })
-    .catch((error) => {
-      console.error(error);
-      alert("Error deleting data");
+    axios.delete(`https://api-stpn.onrender.com/questions/${id}`)
+      .then((response) => {
+        console.log("%c Question deleted successfully", "color: green; font-weight: bold");
+        showAlert("Question deleted successfully", "success");
+      })
+      .catch((error) => {
+        console.error(error);
+        showAlert("Error deleting data", "danger");
+      });
+  };
+  
+  const showAlert = (message, type) => {
+    const alertDiv = document.createElement("div");
+    alertDiv.className = `alert alert-${type} mt-3 fixed-top mx-auto bg-light d-flex justify-content-between align-items-center`;
+    alertDiv.style.maxWidth = "400px"; // Adjust the width as needed
+    alertDiv.innerHTML = `
+      <span>${message}</span>
+      <button class="btn btn-sm bg-primary btn-${type}">OK</button>
+    `;
+  
+    const okButton = alertDiv.querySelector("button");
+    okButton.addEventListener("click", () => {
+      alertDiv.remove();
     });
-};
+  
+    document.body.appendChild(alertDiv);
+  
+    setTimeout(() => {
+      alertDiv.remove();
+    }, 5000); // Increased delay to 5 seconds
+  };
+  
 
   
   

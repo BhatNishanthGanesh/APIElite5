@@ -1,7 +1,11 @@
 import React from "react";
-
+import Header from "../components/Header";
 const ApiDocumentation = () => {
   return (
+    <div>
+    <div>
+      <Header/>
+    </div>
     <div className="container mt-5">
       <header className="p-4 rounded-lg shadow">
         <h1 className="display-4">API Documentation</h1>
@@ -93,6 +97,7 @@ const ApiDocumentation = () => {
           </p>
         </div>
       </section>
+    </div>
     </div>
   );
 };

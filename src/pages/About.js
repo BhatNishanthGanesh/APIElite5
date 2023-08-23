@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Header from "../components/Header";
 import "../components/navbar.css";
 
 const BlogContainer = styled.div`
@@ -48,6 +49,9 @@ const AboutHeading = styled.h2`
 function About() {
   return (
     <div>
+      <div>
+       <Header/>
+      </div>
       <BlogContainer>
         <BlogGrid>
           <BlogTitle className="blue-grey">

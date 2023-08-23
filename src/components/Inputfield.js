@@ -27,8 +27,38 @@ const QuestionForm = () => {
       username: user.name,
     };
     await axios.post("https://api-stpn.onrender.com/questions", data);
-    alert("Question added successfully");
+    showAlert("Question added successfully", "success");
+    resetForm();
   };
+  const showAlert = (message, type) => {
+    const alertDiv = document.createElement("div");
+    alertDiv.className = `alert alert-${type} mt-3 fixed-top mx-auto d-flex justify-content-between align-items-center bg-light`;
+    alertDiv.style.maxWidth = "400px";
+    alertDiv.innerHTML = `
+      <span>${message}</span>
+      <button class="btn btn-sm bg-primary text-white">OK</button>
+    `;
+
+    const okButton = alertDiv.querySelector("button");
+    okButton.addEventListener("click", () => {
+      alertDiv.remove();
+    });
+
+    document.body.appendChild(alertDiv);
+
+    setTimeout(() => {
+      alertDiv.remove();
+    }, 5000);
+  };
+  const resetForm = () => {
+    setQuestion("");
+    setOption1("");
+    setOption2("");
+    setOption3("");
+    setOption4("");
+    setCorrectOption("");
+  };
+
   const cardGradient = "linear-gradient(to right, #FFD700, #FFA500)"; // Gradient color for card
 const cardShadow = "0px 5px 15px rgba(255, 165, 0, 0.3)"; //
   const transparentIndigo = "rgba(75, 0, 130, 0.5)";

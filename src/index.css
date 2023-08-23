@@ -71,3 +71,8 @@ code {
   background-color: #dc3545;
   color: white;
 }
+
+.log-button:hover {
+  background-color: #fff;
+  color: black !important;
+}

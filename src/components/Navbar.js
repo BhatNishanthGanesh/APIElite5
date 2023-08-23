@@ -45,7 +45,7 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <button className="white btn me-2"
+                  <button className="white btn me-2 log-button"
                     onClick={() =>
                       logout({
                         logoutParams: { returnTo: window.location.origin },
@@ -64,7 +64,7 @@ function Navbar() {
               </>
             ) : (
               <li>
-                <button className="white btn" onClick={() => loginWithRedirect()}
+                <button className="white btn log-button" onClick={() => loginWithRedirect()}
                 style={{
                   background: 'none',
                   border: '1px solid #ccc',
